@@ -4,7 +4,7 @@ pragma solidity 0.8.26;
 // Arisan Digital: iuran bergilir. Tiap ronde semua anggota membayar iuran,
 // lalu seluruh uang terkumpul otomatis dikirim ke penerima ronde itu.
 // Urutan penerima = urutan pendaftaran (tanpa acak, jadi adil dan bisa diperiksa).
-contract ArisanDigital {
+contract ArisanDigitalFE {
     address public admin;
     uint256 public iuran;       // dalam wei
     uint256 public maksAnggota;
@@ -34,12 +34,12 @@ contract ArisanDigital {
         _;
     }
 
-    // _iuranEth dalam satuan ether, mis. 1 berarti 1 ether per anggota per ronde
-    constructor(uint256 _iuranEth, uint256 _maksAnggota) {
-        require(_iuranEth > 0, "Iuran harus lebih dari 0");
+    // _iuranWei dalam satuan wei, mis. 1000000000000000 berarti 0.001 ether per anggota per ronde
+    constructor(uint256 _iuranWei, uint256 _maksAnggota) {
+        require(_iuranWei > 0, “Iuran harus lebih dari 0”);
         require(_maksAnggota >= 2, "Minimal 2 anggota");
         admin = msg.sender;
-        iuran = _iuranEth * 1 ether;
+        iuran = _iuranWei;
         maksAnggota = _maksAnggota;
     }
 
