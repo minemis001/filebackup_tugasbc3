@@ -36,7 +36,7 @@ contract ArisanDigitalFE {
 
     // _iuranWei dalam satuan wei, mis. 1000000000000000 berarti 0.001 ether per anggota per ronde
     constructor(uint256 _iuranWei, uint256 _maksAnggota) {
-        require(_iuranWei > 0, “Iuran harus lebih dari 0”);
+        require(_iuranWei > 0, "Iuran harus lebih dari 0");
         require(_maksAnggota >= 2, "Minimal 2 anggota");
         admin = msg.sender;
         iuran = _iuranWei;
